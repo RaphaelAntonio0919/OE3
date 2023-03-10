@@ -1,0 +1,123 @@
+import java.util.Scanner;
+
+public class recursion {
+    
+    static void function1(){
+        System.out.print(s:"Hello");
+        function1();
+    }
+    
+    static int ctr = 0;
+    static void function2(){
+        ctr++;
+        if(ctr <= 1){
+            System.out.print(s:"Hello ");
+            function2();
+        }
+    }
+    
+    static void iteration1(){
+        for(int x = 0; x < 5; x++ ){
+            System.out.print(s:"Hello ");
+        }
+    }
+    
+    static int f1 = 0, f2 = 1, fn = 0;
+    static void Fibonnaci(int num){
+        if(num > 0){
+            fn = f1 + f2;
+            f1 = f2;
+            f2 = fn;
+            System.out.print(" " + fn);
+            Fibonacci(num - 1);
+        }
+    }
+    
+    static void Reverse(int num){
+        if(num < 10){
+            System.out.print(num);
+            return;
+        }else{
+            System.out.print(num % 10 + " ");
+            Reverse(num/10);
+        }
+    }
+    
+    static void ReverseWord(String word){
+        if((word == null)) || (word.length() <=1)){
+            System.out.print(word);
+        }else{
+            system.out.print(word.charAt(word.length()-1));
+            ReverseWord(word.substring(beginIndex:0, word.length()-1));
+        }
+    }
+    
+    static void TowerofHanoi(){
+        
+    }
+    
+    static int Factorial(int num){
+        system.out.print(num + " x ");
+        if(num == 1)
+            return 1;
+        else
+            return(num + Factorial(num-1));
+    }
+    
+    public static void main(String[] args) {
+        
+        int choice, ans = 0;
+        String word;
+        Scanner in = new Scanner(System.in);
+        
+        do{
+            System.out.println(x:"APPLICATION OF RECURSION\n");
+            System.out.println(x:"[1] Fibonacci series number");
+            System.out.println(x:"[2] Factorial of a number");
+            System.out.println(x:"[3] Reverse a number");
+            System.out.println(x:"[4] Reverse a string");
+            System.out.println(x:"[5] Tower of Hanoi");
+            System.out.println(x:"[0] System Exit \n");
+            System.out.println(x:"Select your choice : ");
+            choice = in.nextInt();
+            
+            switch(choice){
+                system.out.println(x:"Fibonacci series number\n");
+                int num1 = 0;
+                System.out.print(s:"Enter a number : ");
+                num1 = in.nextInt();
+                System.out.print("0" + " 1 ");
+                Fibonacci(num1);
+                break;
+            }
+            case 2;{
+                System.out.println(x:"Factorial of a number\n");
+                Factorial(num:10);
+                break;
+            }
+            case 3;{
+                system.out.println(x:"Reverse a number\n");
+                Reverse(num: 123456789);
+                break;
+            }
+            case 4;{
+                Scanner input = new Scanner(System.in);
+                System.out.println(x:"Reverse a word\n");
+                System.out.print(s:"Enter a word : ");
+                word = input.nextLine();
+                ReverseWord(word);
+                break;
+            }
+            case 5:{
+                System.out.println(x:"Tower of hanoi\n");
+                break;
+            }
+            case 0:{
+                System.exit(status:0);
+            }
+            default:
+            System.out.print(s:"\nTry again [0 to exit] : ");
+            ans = in.nextInt();
+        }while(ans != 0);
+    }
+}
